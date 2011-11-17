@@ -1,8 +1,6 @@
 #include "testApp.h"
 
 
-
-
 //--------------------------------------------------------------
 void testApp::setup() {
 	ofSetFrameRate(60);
@@ -49,14 +47,14 @@ void testApp::setup() {
 	
 	dest.allocate(width, height, OF_IMAGE_COLOR);
 	
-	DIR.setVerbose(false);
+	//DIR.setVerbose(false);
     numMovies = DIR.listDir("movies");
 	
 	
 	frames = new unsigned char[256*numPixels*3];
-		
 	
-
+	
+	
 }
 
 
@@ -104,7 +102,8 @@ void testApp::draw() {
 		ofVideoPlayer video;
 		video.loadMovie(DIR.getPath(currentMovie));
 		
-		float nFrames = video.nFrames;
+		//float nFrames = video.nFrames;
+		float nFrames = video.getTotalNumFrames();
 		unsigned char* pixels;
 		for (int i = 0; i < 256; i++) {
 			video.setFrame(nFrames * (float) i / 256.0 + 3);
@@ -185,7 +184,7 @@ void testApp::keyPressed (int key) {
 		case '?':
 			showInfo = !showInfo;
 			break;
-		
+			
 		case 'f':
 			ofToggleFullscreen();
 			break;
@@ -195,14 +194,14 @@ void testApp::keyPressed (int key) {
 			sprintf(fileName, "snapshots/%i-%i-%i-%i-%i-%i.png", ofGetYear(), ofGetMonth(), ofGetDay(), ofGetHours(), ofGetMinutes(), ofGetSeconds());
 			dest.saveImage(fileName);
 			break;
-		
+			
 		case 'a':
 			alphaBlend -= 0.05;
 			break;
 		case 'A':
 			alphaBlend += 0.05;
 			break;
-		
+			
 		case 'b':
 			blur -= 1;
 			break;
@@ -230,7 +229,7 @@ void testApp::keyPressed (int key) {
 			clippingNear--;
 			kinect.getCalibration().setClippingInCentimeters(clippingNear, clippingFar);
 			break;
-		
+			
 		case OF_KEY_DOWN:
 			camTilt--;
 			kinect.setCameraTiltAngle(camTilt);
@@ -256,8 +255,8 @@ void testApp::mouseDragged(int x, int y, int button)
 {}
 
 //--------------------------------------------------------------
-void testApp::mousePressed(int x, int y, int button) {
-}
+void testApp::mousePressed(int x, int y, int button)
+{}
 
 //--------------------------------------------------------------
 void testApp::mouseReleased(int x, int y, int button)
