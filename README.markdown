@@ -9,15 +9,22 @@ http://www.flickr.com/photos/twslayer/3800872636/
 # To run the program
 
 1.  Install Perian if you don't already have it (you don't need this to run Time Travellers, but you need it to play the included sunrise.avi as Quicktime doesn't come with the required codec),
+    
     http://perian.org/
+
 2.  Plug in your Kinect camera.
+
 3.  Run `bin/TimeTravellers.app`
+    
     It will take a minute to load the movie. It reads 256 video frames into RAM so as to render smoothly.
+
 4.  If you want to use your own movies, place your own 1280x720 videos in `bin/data/movies` and restart the program.
 
 # To play with the source code
 
 Download openFrameworks and ofTheo's ofxKinect addon,
+
+http://www.openframeworks.cc/
 
 https://github.com/ofTheo/ofxKinect
 
