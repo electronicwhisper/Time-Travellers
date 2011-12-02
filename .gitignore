@@ -3,6 +3,5 @@
 build/
 obj/
 *.o
-*.app/
 .svn/
 .DS_*
